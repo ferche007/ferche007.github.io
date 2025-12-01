@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 namespace algoritmos_geneticos
 {
-    // Paulo Monroy, Santiago López, Mateo Cárdenas
+    // Fernando Mejía 
     class Program
     {
         static void Main(string[] args)
