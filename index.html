@@ -281,10 +281,70 @@
             text-align: center;
         }
         
+        .music-header {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .music-image {
+            width: 200px;
+            height: 200px;
+            border-radius: var(--border-radius);
+            object-fit: cover;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        .music-image:hover {
+            transform: scale(1.05);
+        }
+        
+        .music-info {
+            flex: 1;
+            min-width: 250px;
+            text-align: left;
+        }
+        
+        .music-info h3 {
+            color: var(--primary-color);
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+        
+        .music-info p {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .apple-music-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #fa243c 0%, #ff6b6b 100%);
+            color: white;
+            padding: 12px 25px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(250, 36, 60, 0.3);
+        }
+        
+        .apple-music-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(250, 36, 60, 0.4);
+        }
+        
         .apple-music-embed {
             margin-top: 20px;
             border-radius: var(--border-radius);
             overflow: hidden;
+            box-shadow: var(--shadow);
         }
         
         .loading {
@@ -422,6 +482,20 @@
             
             .projects-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .music-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .music-info {
+                text-align: center;
+            }
+            
+            .music-image {
+                width: 150px;
+                height: 150px;
             }
         }
     </style>
@@ -573,9 +647,28 @@
                 <p>Aquí está mi playlist favorita de Apple Music. ¡Dale play y disfruta!</p>
                 
                 <div class="music-container">
-                    <p style="margin-bottom: 20px; color: var(--text-secondary);">
-                        Mi playlist "Fer" con 135 canciones. ¡Dale play y disfruta!
-                    </p>
+                    <div class="music-header">
+                        <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=400&fit=crop&q=80" 
+                             alt="Música" 
+                             class="music-image"
+                             onerror="this.src='https://via.placeholder.com/200/667eea/ffffff?text=🎵'">
+                        <div class="music-info">
+                            <h3>🎵 Fer</h3>
+                            <p>
+                                <strong>135 canciones</strong> · <strong>8 horas 24 minutos</strong>
+                            </p>
+                            <p style="font-size: 0.95em; margin-top: 10px;">
+                                Una selección personal de mis canciones favoritas. Desde pop hasta hip-hop, 
+                                pasando por música latina y electrónica. ¡Explora y descubre nuevos sonidos!
+                            </p>
+                            <a href="https://music.apple.com/mx/playlist/fer/pl.u-55D6Zy3CMMaW4l" 
+                               target="_blank" 
+                               class="apple-music-btn">
+                                <span>▶️</span> Abrir en Apple Music
+                            </a>
+                        </div>
+                    </div>
+                    
                     <div class="apple-music-embed">
                         <iframe 
                             allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" 
@@ -586,8 +679,9 @@
                             src="https://embed.music.apple.com/mx/playlist/pl.u-55D6Zy3CMMaW4l">
                         </iframe>
                     </div>
+                    
                     <p style="margin-top: 20px; font-size: 0.9em; color: var(--text-secondary);">
-                        🎵 <strong>Playlist:</strong> Fer - 135 canciones, 8 horas 24 minutos
+                        💡 <strong>Tip:</strong> Haz clic en "Abrir en Apple Music" para escuchar la playlist completa en la app
                     </p>
                 </div>
             </div>
