@@ -12,9 +12,9 @@
         }
         
         :root {
-            --primary-color: #667eea;
-            --secondary-color: #764ba2;
-            --accent-color: #f093fb;
+            --primary-color: #1a1a1a;
+            --secondary-color: #2d2d2d;
+            --accent-color: #00ff41;
             --dark-bg: #1a1a2e;
             --card-bg: #ffffff;
             --text-primary: #333;
@@ -64,7 +64,7 @@
         
         .header {
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: white;
+            color: #00ff41;
             padding: 40px;
             text-align: center;
         }
@@ -114,7 +114,7 @@
         }
         
         .qr-label {
-            color: white;
+            color: #00ff41;
             font-size: 0.9em;
             opacity: 0.9;
             text-align: center;
@@ -134,18 +134,19 @@
             align-items: center;
             gap: 8px;
             padding: 10px 20px;
-            background: rgba(255,255,255,0.2);
-            color: white;
+            background: rgba(0,255,65,0.1);
+            color: #00ff41;
             text-decoration: none;
             border-radius: 25px;
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
+            border: 1px solid rgba(0,255,65,0.3);
         }
         
         .social-link:hover {
-            background: rgba(255,255,255,0.3);
+            background: rgba(0,255,65,0.2);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 15px rgba(0,255,65,0.3);
         }
         
         .tabs {
@@ -279,11 +280,12 @@
         .project-card .tech {
             display: inline-block;
             background: var(--primary-color);
-            color: white;
+            color: #00ff41;
             padding: 5px 12px;
             border-radius: 20px;
             font-size: 0.85em;
             margin: 5px 5px 5px 0;
+            border: 1px solid rgba(0,255,65,0.3);
         }
         
         .github-activity {
@@ -425,11 +427,12 @@
         
         .stat-card {
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: white;
+            color: #00ff41;
             padding: 25px;
             border-radius: var(--border-radius);
             text-align: center;
             transition: all 0.3s ease;
+            border: 1px solid rgba(0,255,65,0.2);
         }
         
         .stat-card:hover {
@@ -481,14 +484,14 @@
         .form-group textarea:focus {
             outline: none;
             border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            box-shadow: 0 0 0 3px rgba(0, 255, 65, 0.1);
         }
         
         .btn {
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: white;
+            color: #00ff41;
             padding: 12px 30px;
-            border: none;
+            border: 1px solid rgba(0,255,65,0.3);
             border-radius: var(--border-radius);
             font-size: 1em;
             cursor: pointer;
@@ -552,22 +555,22 @@
     <canvas id="matrix-canvas"></canvas>
     <div class="container">
         <div class="header">
-            <h1>👋 Fernando Mejía</h1>
+            <h1>Fernando Mejía</h1>
             <p class="subtitle">Estudiante de Economía y Ciencias de Datos en el ITAM</p>
             <div class="qr-container">
                 <div>
                     <div class="qr-code">
                         <img id="qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://github.com/ferche007" alt="QR Code - Sigue en GitHub">
                     </div>
-                    <p class="qr-label">📱 Escanea para seguirme en GitHub</p>
+                    <p class="qr-label">Escanea para seguirme en GitHub</p>
                 </div>
             </div>
             <div class="social-links">
                 <a href="https://github.com/ferche007" class="social-link" target="_blank">
-                    <span>🔗</span> GitHub
+                    GitHub
                 </a>
                 <a href="mailto:fmejiaal@itam.mx" class="social-link">
-                    <span>✉️</span> Email
+                    Email
                 </a>
             </div>
         </div>
@@ -583,7 +586,7 @@
         <!-- Tab: Sobre Mí -->
         <div id="about" class="tab-content active">
             <div class="section">
-                <h2>📚 Sobre Mí</h2>
+                <h2>Sobre Mí</h2>
                 <p>
                     Hola! Soy Fernando Mejía, estudiante de Economía y Ciencias de Datos en el ITAM. 
                     Actualmente estoy cursando el quinto semestre de la carrera, enfocándome en el 
@@ -596,30 +599,30 @@
             </div>
             
             <div class="section">
-                <h2>🛠️ Tecnologías</h2>
+                <h2>Tecnologías</h2>
                 <div class="skills-grid">
                     <div class="skill-card">
-                        <h3>🐍 Python</h3>
+                        <h3>Python</h3>
                         <p>Data Science, Machine Learning, APIs</p>
                     </div>
                     <div class="skill-card">
-                        <h3>🗄️ SQL</h3>
+                        <h3>SQL</h3>
                         <p>Bases de datos relacionales</p>
                     </div>
                     <div class="skill-card">
-                        <h3>⚡ PySpark</h3>
+                        <h3>PySpark</h3>
                         <p>Procesamiento de datos a gran escala</p>
                     </div>
                     <div class="skill-card">
-                        <h3>🍃 MongoDB</h3>
+                        <h3>MongoDB</h3>
                         <p>Bases de datos no relacionales</p>
                     </div>
                     <div class="skill-card">
-                        <h3>🐳 Docker</h3>
+                        <h3>Docker</h3>
                         <p>Containerización y despliegue</p>
                     </div>
                     <div class="skill-card">
-                        <h3>☕ Java / C++</h3>
+                        <h3>Java / C++</h3>
                         <p>Programación orientada a objetos</p>
                     </div>
                 </div>
@@ -629,12 +632,12 @@
         <!-- Tab: Proyectos -->
         <div id="projects" class="tab-content">
             <div class="section">
-                <h2>💻 Proyectos</h2>
+                <h2>Proyectos</h2>
                 <p>Aquí están algunos de mis proyectos destacados:</p>
                 
                 <div class="projects-grid">
                     <div class="project-card">
-                        <h3>🌡️ Algoritmo Genético - Curva de Keeling</h3>
+                        <h3>Algoritmo Genético - Curva de Keeling</h3>
                         <p>Algoritmo genético para aproximar la curva de Keeling relacionada con el cambio climático.</p>
                         <div>
                             <span class="tech">Python</span>
@@ -644,7 +647,7 @@
                     </div>
                     
                     <div class="project-card">
-                        <h3>📊 Análisis Económico</h3>
+                        <h3>Análisis Económico</h3>
                         <p>Proyectos de análisis económico y estadístico utilizando Python y herramientas de visualización.</p>
                         <div>
                             <span class="tech">Python</span>
@@ -654,7 +657,7 @@
                     </div>
                     
                     <div class="project-card">
-                        <h3>🗄️ Bases de Datos</h3>
+                        <h3>Bases de Datos</h3>
                         <p>Proyectos con bases de datos relacionales y no relacionales (SQL, MongoDB, PySpark).</p>
                         <div>
                             <span class="tech">SQL</span>
@@ -669,7 +672,7 @@
         <!-- Tab: GitHub Activity -->
         <div id="github" class="tab-content">
             <div class="section">
-                <h2>⚡ Actividad de GitHub</h2>
+                <h2>Actividad de GitHub</h2>
                 <p>Mi actividad reciente en GitHub:</p>
                 
                 <div id="github-stats" class="stats-grid">
@@ -700,7 +703,7 @@
         <!-- Tab: Música -->
         <div id="music" class="tab-content">
             <div class="section">
-                <h2>🎵 Mi Música</h2>
+                <h2>Mi Música</h2>
                 <p>Aquí está mi playlist favorita de Apple Music. ¡Dale play y disfruta!</p>
                 
                 <div class="music-container">
@@ -708,9 +711,9 @@
                         <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=400&fit=crop&q=80" 
                              alt="Música" 
                              class="music-image"
-                             onerror="this.src='https://via.placeholder.com/200/667eea/ffffff?text=🎵'">
+                             onerror="this.src='https://via.placeholder.com/200/1a1a1a/ffffff?text=Music'">
                         <div class="music-info">
-                            <h3>🎵 Fer</h3>
+                            <h3>Fer</h3>
                             <p>
                                 <strong>135 canciones</strong> · <strong>8 horas 24 minutos</strong>
                             </p>
@@ -721,7 +724,7 @@
                             <a href="https://music.apple.com/mx/playlist/fer/pl.u-55D6Zy3CMMaW4l" 
                                target="_blank" 
                                class="apple-music-btn">
-                                <span>▶️</span> Abrir en Apple Music
+                                Abrir en Apple Music
                             </a>
                         </div>
                     </div>
@@ -738,7 +741,7 @@
                     </div>
                     
                     <p style="margin-top: 20px; font-size: 0.9em; color: var(--text-secondary);">
-                        💡 <strong>Tip:</strong> Haz clic en "Abrir en Apple Music" para escuchar la playlist completa en la app
+                        <strong>Tip:</strong> Haz clic en "Abrir en Apple Music" para escuchar la playlist completa en la app
                     </p>
                 </div>
             </div>
@@ -747,7 +750,7 @@
         <!-- Tab: Contacto -->
         <div id="contact" class="tab-content">
             <div class="section">
-                <h2>📧 Contacto</h2>
+                <h2>Contacto</h2>
                 <p>¿Tienes alguna pregunta o quieres colaborar? ¡Contáctame!</p>
                 
                 <div class="contact-form">
@@ -772,10 +775,10 @@
                     <h3 style="color: var(--primary-color); margin-bottom: 15px;">O contáctame directamente:</h3>
                     <div class="social-links" style="justify-content: flex-start;">
                         <a href="mailto:fmejiaal@itam.mx" class="social-link" style="background: var(--primary-color);">
-                            <span>✉️</span> fmejiaal@itam.mx
+                            fmejiaal@itam.mx
                         </a>
                         <a href="https://github.com/ferche007" class="social-link" style="background: var(--primary-color);" target="_blank">
-                            <span>🔗</span> GitHub
+                            GitHub
                         </a>
                     </div>
                 </div>
@@ -784,7 +787,7 @@
         
         <div class="footer">
             <p>Última actualización: <span id="date"></span></p>
-            <p style="margin-top: 10px;">Hecho con ❤️ por Fernando Mejía</p>
+            <p style="margin-top: 10px;">Hecho por Fernando Mejía</p>
         </div>
     </div>
     
@@ -870,16 +873,16 @@
         
         function getEventIcon(type) {
             const icons = {
-                'PushEvent': '📝',
-                'CreateEvent': '✨',
-                'WatchEvent': '⭐',
-                'ForkEvent': '🍴',
-                'IssuesEvent': '🐛',
-                'PullRequestEvent': '🔀',
-                'ReleaseEvent': '🚀',
-                'DeleteEvent': '🗑️'
+                'PushEvent': '→',
+                'CreateEvent': '+',
+                'WatchEvent': '★',
+                'ForkEvent': 'F',
+                'IssuesEvent': '!',
+                'PullRequestEvent': 'PR',
+                'ReleaseEvent': 'R',
+                'DeleteEvent': 'X'
             };
-            return icons[type] || '📌';
+            return icons[type] || '•';
         }
         
         function getEventMessage(event) {
