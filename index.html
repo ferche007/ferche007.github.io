@@ -28,10 +28,21 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
             color: var(--text-primary);
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 50%, var(--accent-color) 100%);
-            background-attachment: fixed;
+            background: #000000;
             min-height: 100vh;
             padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        #matrix-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
         }
         
         .container {
@@ -42,6 +53,8 @@
             box-shadow: var(--shadow-hover);
             overflow: hidden;
             animation: fadeIn 0.6s ease-in;
+            position: relative;
+            z-index: 1;
         }
         
         @keyframes fadeIn {
@@ -71,6 +84,41 @@
             font-size: 1.3em;
             opacity: 0.95;
             margin-bottom: 20px;
+        }
+        
+        .header .qr-container {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .qr-code {
+            background: white;
+            padding: 15px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .qr-code:hover {
+            transform: scale(1.05);
+        }
+        
+        .qr-code img {
+            display: block;
+            width: 150px;
+            height: 150px;
+        }
+        
+        .qr-label {
+            color: white;
+            font-size: 0.9em;
+            opacity: 0.9;
+            text-align: center;
+            margin-top: 10px;
         }
         
         .header .social-links {
@@ -501,10 +549,19 @@
     </style>
 </head>
 <body>
+    <canvas id="matrix-canvas"></canvas>
     <div class="container">
         <div class="header">
             <h1>👋 Fernando Mejía</h1>
             <p class="subtitle">Estudiante de Economía y Ciencias de Datos en el ITAM</p>
+            <div class="qr-container">
+                <div>
+                    <div class="qr-code">
+                        <img id="qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://github.com/ferche007" alt="QR Code - Sigue en GitHub">
+                    </div>
+                    <p class="qr-label">📱 Escanea para seguirme en GitHub</p>
+                </div>
+            </div>
             <div class="social-links">
                 <a href="https://github.com/ferche007" class="social-link" target="_blank">
                     <span>🔗</span> GitHub
@@ -898,6 +955,57 @@
             month: 'long',
             day: 'numeric'
         });
+        
+        // Matrix Rain Animation
+        (function() {
+            const canvas = document.getElementById('matrix-canvas');
+            const ctx = canvas.getContext('2d');
+            
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            const matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()*&^%+-/~{[|`]}";
+            const matrixArray = matrix.split("");
+            
+            const fontSize = 14;
+            const columns = canvas.width / fontSize;
+            
+            const drops = [];
+            for (let x = 0; x < columns; x++) {
+                drops[x] = 1;
+            }
+            
+            function draw() {
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                ctx.fillStyle = '#00ff41'; // Green color
+                ctx.font = fontSize + 'px monospace';
+                
+                for (let i = 0; i < drops.length; i++) {
+                    const text = matrixArray[Math.floor(Math.random() * matrixArray.length)];
+                    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                    
+                    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                        drops[i] = 0;
+                    }
+                    drops[i]++;
+                }
+            }
+            
+            function resize() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                const newColumns = canvas.width / fontSize;
+                while (drops.length < newColumns) {
+                    drops.push(1);
+                }
+                drops.splice(newColumns);
+            }
+            
+            window.addEventListener('resize', resize);
+            setInterval(draw, 35);
+        })();
     </script>
 </body>
 </html>
